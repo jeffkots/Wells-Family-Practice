@@ -449,7 +449,10 @@ footer {
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .portal-button:hover {
