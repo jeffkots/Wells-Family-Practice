@@ -275,8 +275,8 @@ nav a:hover {
 }
 
 /* Adjust Chloe's image positioning to prevent cropping */
-.doctor img[src='images/Chloe_Schmir.jpg'] {
-  object-position: center 20px;
+.doctor img[src='images/Chloe.jpg'] {
+  object-position: center 0px;
 }
 
 .doctor h3 {
