@@ -38,4 +38,34 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }, 100);
+
+  // Hide/show header on scroll
+  let lastScrollTop = 0;
+  let isScrolling;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Clear the timeout if it exists
+    clearTimeout(isScrolling);
+
+    // Only trigger hide/show after scrolling past the header height
+    if (scrollTop > 80) {
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down - hide header
+        header.style.transform = 'translateY(-100%)';
+        header.style.transition = 'transform 0.3s ease-in-out';
+      } else {
+        // Scrolling up - show header
+        header.style.transform = 'translateY(0)';
+        header.style.transition = 'transform 0.3s ease-in-out';
+      }
+    } else {
+      // At the top of the page - always show header
+      header.style.transform = 'translateY(0)';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
 });
