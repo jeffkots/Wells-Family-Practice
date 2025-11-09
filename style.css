@@ -119,17 +119,17 @@ header {
   }
 
   .header-right {
-    gap: 0;
+    gap: 1rem;
     justify-content: flex-end;
   }
 
   .portal-button {
-    display: none;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .hamburger {
     display: flex;
-    margin-left: auto;
   }
 
   .site-nav {
