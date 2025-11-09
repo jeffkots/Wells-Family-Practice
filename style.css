@@ -30,6 +30,11 @@ a[href^='tel:'],
   white-space: nowrap;
 }
 
+/* Phone links in hero section should be white */
+.hero a[href^='tel:'] {
+  color: white;
+}
+
 /* Header */
 header {
   background: #0a3c7e;
@@ -449,10 +454,7 @@ footer {
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .portal-button:hover {
