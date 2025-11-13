@@ -317,6 +317,17 @@ nav a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Placeholder for missing staff images */
+.placeholder-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #87ceeb; /* Light blue */
+  border: 3px solid #0a3c7e;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .staff-info h3 {
   margin: 0.5rem 0;
   color: #0a3c7e;
@@ -339,6 +350,11 @@ nav a:hover {
   }
 
   .staff-info img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .placeholder-image {
     width: 100px;
     height: 100px;
   }
