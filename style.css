@@ -1,55 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Parisienne&display=swap');
+/* ============================================================
+   Wells Family Practice — Apple-inspired Design System
+   ============================================================ */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-body {
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.6;
-  color: #333;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+  line-height: 1.7;
+  color: #1d1d1f;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Links */
 a {
-  color: #0a3c7e;
+  color: #0071e3;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #0077ed;
 }
 
-/* Phone numbers - prevent wrapping */
+/* Phone numbers */
 a[href^='tel:'],
 .phone-number {
   white-space: nowrap;
 }
 
-/* Phone links in hero section should be white */
-.hero a[href^='tel:'] {
-  color: white;
-}
-
-/* Header */
+/* ============================================================
+   Header — Frosted glass
+   ============================================================ */
 header {
-  background: #0a3c7e;
-  color: white;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
+
 .header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1100px;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .header-left {
@@ -61,20 +70,25 @@ header {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-}
-/* --- Header Layout --- */
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  gap: 2rem;
 }
 
-/* Default nav styles (desktop) */
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo img {
+  max-height: 56px;
+  width: auto;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(30%) saturate(500%) hue-rotate(180deg);
+}
+
+/* Navigation */
 .site-nav ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -83,38 +97,438 @@ header {
 .site-nav a {
   text-decoration: none;
   font-weight: 500;
-  color: white; /* adjust to match your design */
+  font-size: 0.875rem;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
 }
 
-/* Hide the checkbox itself */
+.site-nav a:hover {
+  color: #0071e3;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: #1d1d1f;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+nav a:hover {
+  color: #0071e3;
+}
+
+/* Hide the checkbox */
 .nav-toggle {
   display: none;
 }
 
-/* Hamburger button base */
+/* Hamburger */
 .hamburger {
-  display: none; /* we'll show this on mobile */
+  display: none;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
   padding: 0.5rem;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
-/* Hamburger lines */
 .hamburger span {
   display: block;
-  width: 28px;
-  height: 3px;
-  background: white; /* match text color / brand color */
+  width: 22px;
+  height: 2px;
+  background: #1d1d1f;
   border-radius: 2px;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ---------- MOBILE ---------- */
+/* Portal button — pill */
+.portal-button {
+  background: #0071e3;
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 980px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.portal-button:hover {
+  background: #0077ed;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  background: linear-gradient(160deg, #1d1d1f 0%, #2c3e50 60%, #3a5a7c 100%);
+  color: #f5f5f7;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center bottom, rgba(0, 113, 227, 0.06) 0%, transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(245, 245, 247, 0.8);
+  margin-bottom: 1rem;
+}
+
+.hero a[href^='tel:'] {
+  color: #64d2ff;
+  font-weight: 500;
+}
+
+.hero a[href^='tel:']:hover {
+  color: #5ac8fa;
+}
+
+.hero-phones {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-phones span {
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section {
+  padding: 5rem 2rem;
+  scroll-margin-top: 80px;
+}
+
+.section.alt {
+  background: #f5f5f7;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+  margin-bottom: 1.5rem;
+}
+
+.section p,
+.section li {
+  margin-bottom: 1rem;
+  color: #424245;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   Doctors / Providers
+   ============================================================ */
+.doctors {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.doctor {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.doctor:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.doctor-info {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 180px;
+}
+
+.doctor img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.doctor img[src='images/Chloe.jpg'] {
+  object-position: center 0px;
+}
+
+.doctor h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+}
+
+.doctor-bio {
+  flex: 1;
+}
+
+.doctor-bio p {
+  color: #424245;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   Staff
+   ============================================================ */
+.staff {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.staff-member {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.staff-member:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.staff-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.staff-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.staff-info h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+}
+
+.staff-info .role {
+  color: #86868b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.staff-bio {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #424245;
+}
+
+/* ============================================================
+   Policies
+   ============================================================ */
+.policy-group {
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.policy-group h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.policy-group p {
+  color: #424245;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.policy-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.contact h2 {
+  margin-bottom: 1.5rem;
+}
+
+.map {
+  flex: 1 1 350px;
+  border: 0;
+  min-height: 300px;
+  min-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #0071e3;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.map-link:hover {
+  color: #0077ed;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+  background: #1d1d1f;
+  color: #86868b;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   Expandable bios
+   ============================================================ */
+.expandable-bio {
+  position: relative;
+  max-height: 4.5em;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandable-bio.expanded {
+  max-height: 2000px;
+}
+
+.expandable-bio:not(.expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2em;
+  background: linear-gradient(to bottom, transparent, #fff);
+  pointer-events: none;
+}
+
+.section.alt .expandable-bio:not(.expanded)::after {
+  background: linear-gradient(to bottom, transparent, #f5f5f7);
+}
+
+.bio-toggle {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0071e3;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.bio-toggle:hover {
+  color: #0077ed;
+}
+
+/* ============================================================
+   Mobile
+   ============================================================ */
 @media (max-width: 768px) {
   .header-inner {
+    padding: 0.6rem 1.25rem;
     position: relative;
   }
 
@@ -124,8 +538,8 @@ header {
   }
 
   .portal-button {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    padding: 0.45rem 1rem;
   }
 
   .hamburger {
@@ -138,25 +552,36 @@ header {
     left: 0;
     right: 0;
     width: 100%;
-    background: #0a3c7e;
-    border-top: 1px solid #1c4d95;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    padding: 1rem 0 0 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    padding: 0.5rem 0;
     display: none;
     flex-direction: column;
   }
 
   .site-nav ul {
     flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem 1rem;
+    gap: 0;
+    padding: 0;
     margin: 0;
   }
 
+  .site-nav li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .site-nav li:last-child {
+    border-bottom: none;
+  }
+
   .site-nav a {
-    font-size: 1rem;
-    font-weight: 500;
-    color: white;
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    color: #1d1d1f;
   }
 
   .nav-toggle:checked ~ .site-nav {
@@ -164,251 +589,59 @@ header {
   }
 
   .nav-toggle:checked + .hamburger span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-    transform-origin: center;
+    transform: translateY(8px) rotate(45deg);
   }
+
   .nav-toggle:checked + .hamburger span:nth-child(2) {
     opacity: 0;
   }
+
   .nav-toggle:checked + .hamburger span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-    transform-origin: center;
-  }
-}
-.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.logo img {
-  max-height: 100px;
-  width: auto;
-  display: block;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero */
-.hero {
-  background-color: #2fa3fc;
-  color: white;
-  text-align: center;
-  padding: 3rem 1rem;
-  position: relative;
-}
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-.hero-content {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.hero h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  font-size: clamp(1.2rem, 4vw, 2rem);
-  white-space: nowrap;
-}
-
-/* Sections */
-.section {
-  padding: 4rem 1rem;
-}
-.section.alt {
-  background: #f4f9ff;
-}
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
-.section h2 {
-  color: #0a3c7e;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-.section p,
-.section li {
-  margin-bottom: 1rem;
-}
-
-/* Doctors */
-.doctors {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.doctor {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.doctor-info {
-  flex-shrink: 0;
-  text-align: center;
-  min-width: 200px;
-}
-
-.doctor img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-}
-
-/* Adjust Chloe's image positioning to prevent cropping */
-.doctor img[src='images/Chloe.jpg'] {
-  object-position: center 0px;
-}
-
-.doctor h3 {
-  margin: 0;
-  color: #0a3c7e;
-}
-
-.doctor-bio {
-  flex: 1;
-}
-
-/* Staff */
-.staff {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-.staff-member {
-  text-align: center;
-  padding: 1rem;
-}
-
-.staff-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.staff-info img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid #0a3c7e;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Placeholder for missing staff images */
-.placeholder-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: #87ceeb; /* Light blue */
-  border: 3px solid #0a3c7e;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.staff-info h3 {
-  margin: 0.5rem 0;
-  color: #0a3c7e;
-}
-
-.staff-info .role {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.staff-bio {
-  font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .staff {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
   }
 
-  .staff-info img {
-    width: 100px;
-    height: 100px;
+  .hero {
+    padding: 2.5rem 1.25rem;
   }
 
-  .placeholder-image {
-    width: 100px;
-    height: 100px;
+  .hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
-}
 
-/* Policies */
-.policy-list {
-  list-style: disc;
-  margin-left: 1.5rem;
-}
+  .hero p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
 
-/* Contact */
-.contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.map {
-  flex: 1 1 300px;
-  border: 0;
-  height: 250px;
-  min-width: 300px;
-}
-.map-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #0a3c7e;
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  background: #0a3c7e;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
+  .hero-phones {
     gap: 0.5rem;
+    font-size: 0.85rem;
   }
+
+  .logo img {
+    max-height: 40px;
+  }
+
+  .section {
+    padding: 3.5rem 1.5rem;
+    scroll-margin-top: 60px;
+  }
+
+  .section h2 {
+    font-size: 1.75rem;
+  }
+
   .doctors {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .doctor {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
+    padding: 2rem 1.5rem;
   }
 
   .doctor-info {
@@ -417,25 +650,36 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+
+  .staff {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .staff-info img,
+  .placeholder-image {
+    width: 80px;
+    height: 80px;
+  }
+
   .contact {
     flex-direction: column;
+    gap: 2rem;
   }
 
-  /* Make map full width on mobile */
-  #contact.section {
-    padding-left: 0;
-    padding-right: 0;
+  .map {
+    width: 100%;
+    border-radius: 12px;
   }
 
-  #contact .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .policy-group {
+    padding: 1.5rem;
+    border-radius: 12px;
   }
 
-  #contact .map {
-    margin-left: calc(-1rem + 8px);
-    margin-right: calc(-1rem + 8px);
-    width: calc(100% + 2rem - 16px);
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   header nav {
@@ -443,43 +687,13 @@ footer {
   }
 }
 
-/* Offset anchor targets so the sticky header doesn't cover section titles */
+/* Scroll offsets */
 #home.hero {
   scroll-margin-top: 0 !important;
 }
 
-.section {
-  scroll-margin-top: 120px;
-}
-
-/* Mobile adjustments */
 @media (max-width: 768px) {
-  /* Hero should start at top on mobile */
   #home.hero {
     scroll-margin-top: 0 !important;
   }
-
-  /* Add scroll offset for sticky header on mobile for other sections */
-  .section {
-    scroll-margin-top: 80px;
-  }
-}
-
-.portal-button {
-  background-color: white;
-  color: #0a3c7e;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  line-height: 1;
-  white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-.portal-button:hover {
-  background-color: #f0f4ff;
-  color: #072b5b;
-  transform: translateY(-2px);
 }

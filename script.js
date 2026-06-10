@@ -68,4 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
+
+  // Expandable bios — truncate long text with "more" toggle
+  var BIO_THRESHOLD = 200;
+  var bios = document.querySelectorAll('.doctor-bio, .staff-bio');
+
+  bios.forEach(function (bio) {
+    var text = bio.textContent.trim();
+    if (text.length > BIO_THRESHOLD) {
+      bio.classList.add('expandable-bio');
+      var btn = document.createElement('button');
+      btn.className = 'bio-toggle';
+      btn.textContent = 'more';
+      btn.addEventListener('click', function () {
+        var isExpanded = bio.classList.toggle('expanded');
+        btn.textContent = isExpanded ? 'less' : 'more';
+      });
+      bio.parentNode.insertBefore(btn, bio.nextSibling);
+    }
+  });
 });
