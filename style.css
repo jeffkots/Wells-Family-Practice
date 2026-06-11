@@ -723,3 +723,114 @@ footer {
     scroll-margin-top: 0 !important;
   }
 }
+
+/* ============================================================
+   Scroll Reveal Animations
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children inside a reveal-group */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-group.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-group.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-group.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-group.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-group.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-group.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-group.is-visible > *:nth-child(7) { transition-delay: 0.65s; }
+.reveal-group.is-visible > *:nth-child(8) { transition-delay: 0.75s; }
+
+/* Hero intro animation */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero background parallax / subtle zoom on scroll */
+.hero {
+  background-attachment: fixed;
+}
+
+/* Phone link hover lift */
+.hero a[href^='tel:'] {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hero a[href^='tel:']:hover {
+  transform: translateY(-1px);
+}
+
+/* Doctor / staff card hover lift */
+.doctor,
+.staff-member {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doctor:hover,
+.staff-member:hover {
+  transform: translateY(-4px);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-group > *,
+  .hero-content > *,
+  .doctor,
+  .staff-member {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
+/* background-attachment: fixed performs poorly on mobile */
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
+}

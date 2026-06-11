@@ -87,4 +87,47 @@ document.addEventListener('DOMContentLoaded', function () {
       bio.parentNode.insertBefore(btn, bio.nextSibling);
     }
   });
+
+  // ============================================================
+  // Scroll reveal animations
+  // ============================================================
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    // Tag section headings + body content for individual reveals
+    var revealSelectors = [
+      '.section h2',
+      '.section > .container > p',
+      '.policy-group',
+      '.contact > div',
+      '.contact .map',
+    ];
+    document.querySelectorAll(revealSelectors.join(',')).forEach(function (el) {
+      el.classList.add('reveal');
+    });
+
+    // Stagger groups: providers + staff
+    document.querySelectorAll('.doctors, .staff').forEach(function (group) {
+      group.classList.add('reveal-group');
+    });
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    document.querySelectorAll('.reveal, .reveal-group').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
 });
