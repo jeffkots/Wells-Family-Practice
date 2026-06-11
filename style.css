@@ -13,7 +13,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
   line-height: 1.7;
   color: #1d1d1f;
   background: #fff;
@@ -187,7 +188,11 @@ nav a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at center bottom, rgba(0, 113, 227, 0.06) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at center bottom,
+    rgba(0, 113, 227, 0.06) 0%,
+    transparent 60%
+  );
 }
 
 .hero-content {
@@ -236,7 +241,7 @@ nav a:hover {
    Sections
    ============================================================ */
 .section {
-  padding: 5rem 2rem;
+  padding: 1rem 2rem;
   scroll-margin-top: 80px;
 }
 
@@ -282,12 +287,18 @@ nav a:hover {
   background: #fff;
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition:
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .doctor:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -343,12 +354,18 @@ nav a:hover {
   padding: 2rem 1.5rem;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition:
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .staff-member:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -405,7 +422,9 @@ nav a:hover {
   padding: 2rem;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
 }
 
 .policy-group h3 {
